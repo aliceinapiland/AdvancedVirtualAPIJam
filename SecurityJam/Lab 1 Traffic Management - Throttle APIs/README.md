@@ -23,7 +23,7 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ## Deploy an API Proxy
 
-1. An initial Apigee API proxy has been created for you. Download the API proxy [here](https://github.com/Enzyme3/apijam/raw/master/Labs/Core/Lab%202%20Traffic%20Management%20-%20Throttle%20APIs/apiproxy/Employees.zip).
+1. An initial Apigee API proxy has been created for you. Download the API proxy [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/blob/master/SecurityJam/Lab%201%20Traffic%20Management%20-%20Throttle%20APIs/apiproxy/Mock-Target-API.zip?raw=true).
 
 2. Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI. 
 
