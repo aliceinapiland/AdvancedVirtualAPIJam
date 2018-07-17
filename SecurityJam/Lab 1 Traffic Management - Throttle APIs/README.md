@@ -39,7 +39,7 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_2.png)
 
-6. Click on **Choose File** and select the **Employees.zip** that was previously downloaded in step 1 and click **Next**.
+6. Click on **Choose File** and select the **Mock-Target-API.zip** that was previously downloaded in step 1 and click **Next**.
 
 ![image alt text](./media/image_3.png)
 
@@ -51,11 +51,11 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_0.png)
 
-* You should see the new **Employees** proxy listed.
+* You should see the new **Mock-Target-API** proxy listed.
 
 ![image alt text](./media/image_5.png)
 
-* Click on the **Employees** proxy. Then click on **Deployment** and select the **test** environment to deploy the proxy to the test environment. 
+* Click on the **Mock-Target-API** proxy. Then click on **Deployment** and select the **test** environment to deploy the proxy to the test environment. 
 
 ![image alt text](./media/image_6.png)
 
@@ -76,7 +76,7 @@ You have successfully deployed an API proxy that fronts a service. Let us now ad
 
 ![image alt text](./media/image_0.png)
 
-2. Click on the **Employees** proxy that you created earlier.
+2. Click on the **Mock-Target-API** proxy that you created earlier.
 
 ![image alt text](./media/image_5.png)
 
