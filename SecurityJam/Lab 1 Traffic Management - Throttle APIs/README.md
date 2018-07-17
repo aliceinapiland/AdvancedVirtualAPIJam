@@ -21,15 +21,15 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 # Instructions
 
-## Create an API Proxy
+## Deploy an API Proxy
 
-1. Download the sample Apigee API proxy [here](https://github.com/Enzyme3/apijam/raw/master/Labs/Core/Lab%202%20Traffic%20Management%20-%20Throttle%20APIs/apiproxy/Employees.zip).
+1. An initial Apigee API proxy has been created for you. Download the API proxy [here](https://github.com/Enzyme3/apijam/raw/master/Labs/Core/Lab%202%20Traffic%20Management%20-%20Throttle%20APIs/apiproxy/Employees.zip).
 
 2. Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI. 
 
-3. Select **Develop → API Proxies** in the side navigation menu
+3. Select **Develop → API Proxies** in the side navigation menu.
 
-![image alt text](./media/image_0.jpg)
+![image alt text](./media/image_0.png)
 
 4. Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard. 
 
@@ -39,19 +39,19 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_2.png)
 
-6. Click on **Choose File** and select the **Employees.zip** that was previously downloaded in step 1 and click **Next**
+6. Click on **Choose File** and select the **Employees.zip** that was previously downloaded in step 1 and click **Next**.
 
 ![image alt text](./media/image_3.png)
 
-7. Click on **Build** to upload the the proxy
+7. Click on **Build** to upload the the proxy.
 
 ![image alt text](./media/image_4.png)
 
 8. Verify the proxy was uploaded by selecting **Develop → API Proxies** in the side navigation menu.
 
-![image alt text](./media/image_0.jpg)
+![image alt text](./media/image_0.png)
 
-* You should see the new **Employees** proxy listed
+* You should see the new **Employees** proxy listed.
 
 ![image alt text](./media/image_5.png)
 
@@ -59,9 +59,9 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_6.png)
 
-6. Verify that the proxy has been successfully deployed.
+9. Verify that the proxy has been successfully deployed.
 
-* Click on the Trace tab on the upper right corner
+* Click on the Trace tab on the upper right corner.
 
 ![image alt text](./media/image_7.png)
 
@@ -69,10 +69,12 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_8.png)
 
+You have successfully deployed an API proxy that fronts a service. Let us now add rate limiting to this proxy to protect the backend from denial of service attacks.
+
 ## Add Rate Limiting to the API Proxy
 1. Select **Develop → API Proxies** in the side navigation menu.
 
-![image alt text](./media/image_0.jpg)
+![image alt text](./media/image_0.png)
 
 2. Click on the **Employees** proxy that you created earlier.
 
@@ -82,7 +84,7 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_9.png)
 
-4. Click on **PreFlow** under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a spike arrest policy.
+4. Click on **PreFlow** under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a Spike Arrest policy.
 
 ![image alt text](./media/image_10.png)
 
@@ -90,9 +92,9 @@ In this lab we will see how to use an out of the box traffic management policy, 
 
 ![image alt text](./media/image_11.png)
 
-6. You can notice Spike Arrest policy icon on top of request flow that shows where exactly policy is attached and policy XML configuration below in editor.
+6. Note the Spike Arrest policy icon on top of request flow that shows exactly where the policy is attached. Select the policy to display the policy's XML configuration in the editor.
 
-![image alt text](./media/image_2.png)
+![image alt text](./media/image_12.png)
 
 7. Change the Policy XML configuration to the below snippet to enforce a rate of 12 requests per minute.
 ```
@@ -131,11 +133,11 @@ What actually happens, then? To prevent spike-like behavior, Spike Arrest smooth
 
 2. Click on **Start Trace Session** to see API Proxy with spike arrest in action.
 
-![image alt text](./media/image_11.png)
+![image alt text](./media/image_14.png)
 
 3. Click on **Send** button multiple times, You will see 500 response code when spike arrest policy kicks in to protect target servers from spike in traffic.
 
-![image alt text](./media/image_14.png)
+![image alt text](./media/image_15.png)
 
 4. You might notice that number of requests with 200 response is more than spike arrest rate value configured, It’s due to multiple message processors where policies gets executed and each has individual counters.
 
