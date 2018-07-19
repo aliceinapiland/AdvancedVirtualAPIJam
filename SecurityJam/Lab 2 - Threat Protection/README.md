@@ -37,7 +37,7 @@ In this lab we will see how to use the following policies:
 
 3. Click on the "**Send request and view request headers and body**" flow under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a JSON Threat Pretection policy.
 
-![image alt text](./media/select-json-flow.png)
+![image alt text](./media/select-json-flow-for-policy.png)
 
 4. Select **JSON Threat Protection** policy. Click on **Add** button to add the policy to the selected flow's request pipeline.
 
