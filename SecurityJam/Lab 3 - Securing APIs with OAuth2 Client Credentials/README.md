@@ -22,15 +22,15 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI.
 
-* Select Develop → API Proxies in the side navigation menu.
+* Select **Develop** → **API Proxies** in the side navigation menu.
 
 ![image alt text](./media/image_0.png)
 
-* Click the +Proxy button on the top-right corner to invoke the Create Proxy wizard.
+* Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard.
 
 ![image alt text](./media/image_1.png)
 
-* Select Proxy Bundle and then click Next to import an existing proxy form a zip archive.
+* Select **Proxy Bundle** and then click **Next** to import an existing proxy form a zip archive.
 
 ![image alt text](./media/image_2.png)
 
@@ -38,7 +38,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_3.png)
 
-* Click Build:
+* Click **Build**:
 
 ![image alt text](./media/image_4.png)
 
@@ -46,15 +46,15 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_5.png)
 
-* Deploy the oauth proxy by clicking on the Deployment dropdown and selecting test:
+* Deploy the oauth proxy by clicking on the **Deployment** dropdown and selecting the **test** environment:
 
 ![image alt text](./media/image_6.png)
 
-* Select Develop → API Proxies in the side navigation menu:
+* Select **Develop** → **API Proxies** in the side navigation menu:
 
 ![image alt text](./media/image_7.png)
 
-* Select the Mock-Target-API proxy:
+* Select the previously created **Mock-Target-API** proxy:
 
 ![image alt text](./media/image_8.png)
 
@@ -62,25 +62,25 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_9.png)
 
-* Ensure that "Preflow" is selected in the “Proxy Endpoints” window, and then click the “+Step” button above the “Request” flow:
+* Ensure that "Preflow" is selected in the “Proxy Endpoints” window, and then click the **+Step** button above the “Request” flow:
 
 ![image alt text](./media/image_10.png)
 
-* Select the "OAuth v2.0" security policy, leave the default names, and then click “Add”:
+* Select the **"OAuth v2.0"** security policy, leave the default names, and then click **Add**:
 
 ![image alt text](./media/image_11.png)
 
-* Drag and drop the OAuth v2.0 policy so it is the first policy (before Spike Arrest) and then click "Save".  After the proxy is saved, click “Trace” in the upper right:
+* Drag and drop the OAuth v2.0 policy so it is the first policy (before Spike Arrest) and then click **Save**.  After the proxy is saved, click **Trace** in the upper right:
 
 ![image alt text](./media/image_12.png)
 
-* Click "Start Trace Session" and then click “Send”:
+* Click **"Start Trace Session"** and then click **Send**:
 
 ![image alt text](./media/image_13.png)
 
 * You should see a 401 error because the proxy is now protected with an OAuth v2.0 policy and the incoming http request to the proxy did not contain an OAuth bearer token.  So now we will need to get a valid OAuth token in order to proceed.  This will require registering a **Developer** who creates an **App** that uses an **API Product** that contains the **API Proxy**.
 
-* Let’s first create an **API Product **and add the the **Mock-Target-API Proxy** to it. Click on Publish→ API Product:
+* Let’s first create an **API Product** and add the the **Mock-Target-API Proxy** to it. Click on Publish→API Product:
 
 ![image alt text](./media/image_14.png)
 
@@ -88,17 +88,17 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_15.png)
 
-* Fill out the fields as shown below.  Click +API Proxy (step 4) and then select the Mock-Target-API (step 5) from the dropdown.  Finally click Save :
+* Fill out the fields as shown below.  Click **+API Proxy** (step 4) and then select the **Mock-Target-API** (step 5) from the dropdown.  Finally click **Save** :
 
 ![image alt text](./media/image_16.png)
 
 * You should now see the Mock Target Product in the list of API Products.  
 
-* Click on Publish → Developer:
+* Click on **Publish** → **Developer**:
 
 ![image alt text](./media/image_17.png)
 
-* Click on +Developer in the upper right of the screen:![image alt text](image_18.png)
+* Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
 
 * Fill out the fields with your **own** name and email address and click **Create**:
 
@@ -106,19 +106,19 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * You should see the new Developer you just created in the list.  
 
-* Click on Publish → Apps
+* Click on **Publish** → **Apps**
 
 ![image alt text](./media/image_20.png)
 
-* Click on +App in the upper right of the screen:
+* Click on **+App** in the upper right of the screen:
 
 ![image alt text](./media/image_21.png)
 
-* Fill out the details in the App screen as shown below.  Click Save:
+* Fill out the details in the App screen as shown below.  Click **Save**:
 
 ![image alt text](./media/image_22.png)
 
-* You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key **and **Consumer Secret** fields.  Copy the Consumer Key and Consumer Secret so you can use them later.  These are the client credentials you will need to get your OAuth token:
+* You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields.  Copy the Consumer Key and Consumer Secret so you can use them later.  These are the client credentials you will need to get your OAuth token:
 
 ![image alt text](./media/image_23.png)
 
@@ -182,7 +182,5 @@ In this lab you learned how to secure your API using a two legged OAuth by using
 
 * Search and Revoke tokens - [https://community.apigee.com/articles/1571/how-to-enable-oauth-20-token-search-and-revocation.html](https://community.apigee.com/articles/1571/how-to-enable-oauth-20-token-search-and-revocation.html)
 
-# **Rate this lab**
-
-How did you link this lab? Rate [here](https://drive.google.com/open?id=1L95jU79wmOP-rHVY2Laba8lApZpS-yztwdONz0nCzWs).
+Now go to [Lab 4](https://goo.gl/m1Ae3k).
 
