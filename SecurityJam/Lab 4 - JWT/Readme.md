@@ -106,4 +106,4 @@ Change the JWT token and claims (iss, aud, sub, extra claims) to see how the beh
 
 * [Adding Additional Claims to your JWT](https://docs.apigee.com/api-platform/reference/policies/generate-jwt-policy#additionalclaimsclaim)
 
-Now go to Lab 5.
+Now go to [Lab 5](https://goo.gl/6S2iJr).

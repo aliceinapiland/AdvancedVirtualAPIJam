@@ -19,5 +19,5 @@ This workshop will be valuable to API developers, architects, and anyone who wan
 - [Lab 2: Protect your APIs against content-based threats](https://goo.gl/t1guSF)
 - [Lab 3: OAuth 2.0 based API security](https://goo.gl/xBMaav)
 - [Lab 4: JWT based API security](https://goo.gl/hgg2Uh)
-- Lab 5: Use Apigee with Okta Identity Protection
+- [Lab 5: OAuth 2.0 based API security using an External Identity Platform such as Okta](https://goo.gl/6S2iJr)
 - Demo of the Apigee Sense API Security Platform
