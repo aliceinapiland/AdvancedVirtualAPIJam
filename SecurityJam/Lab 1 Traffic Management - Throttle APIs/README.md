@@ -169,8 +169,5 @@ That completes this hands-on lesson. In this simple lab you learned how to prote
 
     * Comparing Rate Limiting Policies - [http://docs.apigee.com/api-services/content/comparing-quota-spike-arrest-and-concurrent-rate-limit-policies](http://docs.apigee.com/api-services/content/comparing-quota-spike-arrest-and-concurrent-rate-limit-policies) 
 
-# Rate this lab
 
-How did you like this lab? Rate [here](https://goo.gl/forms/oivm4A6DqBKM9AEJ3).
-
-Now go to [Lab-3](https://github.com/apigee/devjam3/tree/master/Labs/Core/Lab%203%20API%20Diagnostics%20-%20Trace%20tool)
+Now go to [Lab-2](https://goo.gl/HvkmFV)
