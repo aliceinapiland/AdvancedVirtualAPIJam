@@ -16,9 +16,9 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 # Pre-requisites
 
-* Download the Apigee proxy that impelments OAuth client credentiasls grant type [here](./oauth.zip?raw=true).
+* Download the Apigee proxy that impelments OAuth client credentials grant type [here](./oauth.zip?raw=true).
 
-* You have an API Proxy that is not currently secured.  If you do not have an API Proxy available for this lab, revisit the lab *API Design : Create a Reverse Proxy with OpenAPI Specification*.
+* You have completed [Lab 1](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%201%20Traffic%20Management%20-%20Throttle%20APIs). If not, please complete that first.
 
 * You have the following created on Apigee Edge - an API Product, a Developer and an App. If not, jump back to *API Security : Securing APIs with API Key* lab.
 
