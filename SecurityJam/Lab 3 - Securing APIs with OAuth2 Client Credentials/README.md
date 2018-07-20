@@ -24,11 +24,11 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Select **Develop → API Proxies** in the side navigation menu.
 
-![image alt text](./media/image_0.png)
+![image alt text](./media/image00.png)
 
 * Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard. 
 
-![image alt text](./media/image_1.png)
+![image alt text](./media/image01.png)
 
 * Select **Proxy Bundle** and then click **Next** to import an existing proxy form a zip archive.
 
