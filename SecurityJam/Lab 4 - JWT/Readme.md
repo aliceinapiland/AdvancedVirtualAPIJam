@@ -26,15 +26,15 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Select Key Value Maps tab, change Environment Configuration to "test’, and click **+Key Value Map**:
 
-![image alt text](./media/./media/./media/./media/image_1.png)
+![image alt text](./media/image_1.png)
 
 * Type "jwt-secret-key" (must be this name exactly) in the text box and click **Add**:
 
-![image alt text](./media/./media/./media/image_2.png)
+![image alt text](./media/image_2.png)
 
 * Now that the key value map is created, add a Shared Secret (key: secret, value: Apigee123 or your choice) to it as shown:
 
-![image alt text](./media/./media/image_3.png)
+![image alt text](./media/image_3.png)
 
 * This shared secret will be used to both generate and verify JWT tokens using the HS256 algorithm.
 
@@ -52,7 +52,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Download the Apigee proxy "**JWT.zip**" that generates and verifies JWT’s [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/blob/master/SecurityJam/Lab%204%20-%20JWT/JWT.zip?raw=true).  Then click "**Choose File**", select the “**JWT.zip**” file you just downloaded and click **Next**:
 
-![image alt text](./media/./media/image_7.png)
+![image alt text](./media/image_7.png)
 
 * Click **Build**.
 
