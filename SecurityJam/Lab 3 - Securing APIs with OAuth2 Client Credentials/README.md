@@ -24,7 +24,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Select **Develop → API Proxies** in the side navigation menu.
 
-![image alt text](./media/image00.png)
+![image alt text](./media/image000.png)
 
 * Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard. 
 
