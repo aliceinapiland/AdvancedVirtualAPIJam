@@ -16,7 +16,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 # Pre-requisites
 
-* You have an OAuth API proxy in Apigee Edge. This is API proxy is created by default when you provision an Edge instance on Cloud. If this does not exist, let your instructor know. 
+* Download the [Apigee proxy that impelments OAuth client credentiasls grant type.](./oauth.zip)
 
 * You have an API Proxy that is not currently secured.  If you do not have an API Proxy available for this lab, revisit the lab *API Design : Create a Reverse Proxy with OpenAPI Specification*.
 
