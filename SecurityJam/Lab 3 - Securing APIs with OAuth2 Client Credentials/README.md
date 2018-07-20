@@ -22,11 +22,25 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI. 
 
+* Select **Develop → API Proxies** in the side navigation menu.
+
+![image alt text](./media/image_0.png)
+
+* Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard. 
+
+![image alt text](./media/image_1.png)
+
+* Select **Proxy Bundle** and then click **Next** to import an existing proxy form a zip archive.
+
+![image alt text](./media/image_2.png)
+
+* Download the Apigee proxy "oauth.zip" that implements OAuth client credentials grant type [here](./oauth.zip?raw=true).
+
 * Select **Develop → API Proxies** in the side navigation menu
 
 	![image alt text](./media/image_0.jpg)
 
-* Click on the API proxy that you created in *Create a Reverse Proxy with OpenAPI Specification* lab. 
+
 
 * Click on the **Develop** tab. Select **PreFlow** from the sidebar under **Proxy Endpoints** section.
 
