@@ -68,12 +68,13 @@ For a full list of JSON integrity checks that can be performed using this policy
 
 1. To test the changes made, first click on **Trace** tab of the API proxy dashboard, and click on **Start Trace Session** button.
 
-![image alt text](./media/start-trace.png)
+![image alt text](./media/start-tracev2.png)
 
-2. Now, send a POST request to the API endpoint **http://org-env.apigee.net/mock-target-api/echo** with the following format:
+* **Note**: Take note of the Apigee `organization` and `environment` you are working in. In the screenshot above, the organization is `amer-demo16` and the environment is `test`. Your organization name will likely end in `*-eval`
+2. Now, send a POST request to your API endpoint at **http://{{your-organization}}-{{your-environment}}.apigee.net/mock-target-api/echo** with the following format:
 ```
 POST /mock-target-api/echo HTTP/1.1
-Host: org-env.apigee.net
+Host: {{your org}}-{{your env}}.apigee.net
 Content-Type: application/json
 
 {
@@ -88,8 +89,11 @@ Content-Type: application/json
 
 You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
 ```
-curl -X POST "http://org-env.apigee.net/mock-target-api/echo" -H "Content-Type: application/json" -d '{"field1": "test_value1", "field2": "test_value2", "field3": "test_value3", "field4": "test_value4", "field5": "test_value5", "field6": "test_value6"}'
+curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/json" -d '{"field1": "test_value1", "field2": "test_value2", "field3": "test_value3", "field4": "test_value4", "field5": "test_value5", "field6": "test_value6"}'
 ```
+* **Note:** If you are using a REST client, make sure that your HTTP request has a Header name/value pair of `Content-Type: application/json` as shown below
+
+![image alt text](./media/add-json-header.png)
 
 3. The response received will be an error, since we attempted to send more than 5 fields in the POST request payload.
 
@@ -102,7 +106,7 @@ We also see that the JSON Threat Protection policy was triggered to return this 
 4. You can now test for a successful API call, by sending the API endpoint a similar POST request, but this time with 5 or fewer fields in the JSON payload.
 ```
 POST /mock-target-api/echo HTTP/1.1
-Host: org-env.apigee.net
+Host: {{your-org}}-{{your-env}}.apigee.net
 Content-Type: application/json
 
 {
@@ -116,7 +120,7 @@ Content-Type: application/json
 
 You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
 ```
-curl -X POST "http://org-env.apigee.net/mock-target-api/echo" -H "Content-Type: application/json" -d '{"field1": "test_value1", "field2": "test_value2", "field3": "test_value3", "field4": "test_value4", "field5": "test_value5"}'
+curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/json" -d '{"field1": "test_value1", "field2": "test_value2", "field3": "test_value3", "field4": "test_value4", "field5": "test_value5"}'
 ```
 
 3. The response received will be a successful one, since we attempted to send fewer fields in the POST request payload.
@@ -166,10 +170,10 @@ For a full list of XML payload integrity checks that can be performed using this
 
 ![image alt text](./media/start-trace.png)
 
-2. Now, send a POST request to the API endpoint **http://org-env.apigee.net/mock-target-api/echo** with the following format:
+2. Now, send a POST request to the API endpoint **http://{{your-organization}}-{{your-environment}}.apigee.net/mock-target-api/echo** with the following format:
 ```
 POST /mock-target-api/echo HTTP/1.1
-Host: org-env.apigee.net
+Host: {{your-org}}-{{your-env}}.apigee.net
 Content-Type: application/xml
 
 <body>
@@ -182,8 +186,12 @@ Content-Type: application/xml
 
 You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
 ```
-curl -X POST "http://org-env.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3><node4>value4</node4></body>'
+curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3><node4>value4</node4></body>'
 ```
+
+* **Note:** If you are using a REST client, make sure that your HTTP request has a Header name/value pair of `Content-Type: xml/json` as shown below
+
+![image alt text](./media/add-xml-header.png)
 
 3. The response received will be an error, since we attempted to send more than 3 child nodes under element '<body>' in the POST request payload.
 
@@ -208,7 +216,7 @@ Content-Type: application/xml
 
 You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
 ```
-curl -X POST "http://org-env.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3></body>'
+curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3></body>'
 ```
 
 3. The response received will be a successful one, since we attempted to send fewer fields in the POST request payload.
