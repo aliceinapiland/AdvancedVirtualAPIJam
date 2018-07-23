@@ -143,14 +143,14 @@ Now that we have configured the end user credentials in Okta, and the API Proxy 
 curl -X POST -H "Accept:application/json" -H "Content-Type:application/x-www-form-urlencoded" -d 'grant_type=password&user={{okta_user}}&password={{okta_password}}&client_id={{client_id}}&client_secret={{client_secret}}' "https://{{org}}-{{env}}.apigee.net/oauth-ext/token"
 ```
 
-![image alt text](RESTClient-OAuthRequest1.png)
-![image alt text](RESTClient-OAuthRequest2.png)
+![image alt text](./media/RESTClient-OAuthRequest1.png)
+![image alt text](./media/RESTClient-OAuthRequest2.png)
 
 Note down the generated access token:
-![image alt text](RESTClient-OAuthResponse.png)
+![image alt text](./media/RESTClient-OAuthResponse.png)
 
 Also, note in the Trace session that the Service Callout policy in the "oauth-okta-integration" proxy is called to validate the end user identity in Okta. On successful authentication, the proxy uses the OAuthV2 policy to generate the access token.
-![image alt text](TraceResultOAuthProxy.png)
+![image alt text](./media/TraceResultOAuthProxy.png)
 
 3. Now, let us test the "Mock-Target-API" proxy which we have now protected with the OAuthV2 policy.
 (Optional) Navigate to the proxy overview screen of the "Mock-Target-API" proxy, and start the Trace session:
