@@ -76,7 +76,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * You should see a token received in HTTP response.  Copy the token value (except for the " “) and review the Trace tool to understand what happened.
 
-* Go to [http://jwt.io](http://jwt.io) and paste the token in the Encoded Window (ensure the algorithm is HS256).  Also type the shared secret in the Verify Signature box:
+* Go to [http://jwt.io](http://jwt.io) and paste the token in the Encoded Window (ensure the algorithm is HS256).  Also type the shared secret (e.g. **Apigee123** unless you changed it) in the Verify Signature box:
 
 ![image alt text](./media/image_10.png)
 
