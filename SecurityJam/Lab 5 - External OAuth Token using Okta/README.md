@@ -67,7 +67,7 @@ Provide the Developer configuration as shown below, and click **Create**:
 ![image alt text](./media/AddDeveloperDetails.png)
 
 5. Navigate to **Publish -> Apps** on the Management UI:
-![image alt text](./media/Publish-Apps)
+![image alt text](./media/Publish-Apps.png)
 
 6. Click the **+App** button.
 ![image alt text](./media/AddApp.png)
