@@ -178,8 +178,8 @@ Once the access token is validated, a successful API response is returned:
 
 Earn Extra-points
 * Try out the okta integration proxy for the delegated token generation case where Okta mints the OAuth access token instead of Apigee, as documented here: 
-- [Apigee Community Article](https://community.apigee.com/articles/28752/apigeeokta-integration-resource-owner-password-gra.html)
-- [Proxy](https://github.com/prithpal/apigee-okta-integration)
+	- [Apigee Community Article](https://community.apigee.com/articles/28752/apigeeokta-integration-resource-owner-password-gra.html)
+	- [Proxy](https://github.com/prithpal/apigee-okta-integration)
 
 * Also, see the advanced example for Open ID Connect with Okta, [here](https://github.com/apigee/apigee-okta).
 
