@@ -100,7 +100,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
 
-* Fill out the fields with your **own** name and email address and click **Create**:
+* Fill out the fields with your **own name and email address** and click **Create**:
 
 ![image alt text](./media/image_19.png)
 
