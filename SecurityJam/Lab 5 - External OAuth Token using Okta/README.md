@@ -171,3 +171,20 @@ curl -X GET -H "Authorization:Bearer NekHnzn7wPYIu4kkmlVbK1BcdWQE" "http://{{org
 
 Once the access token is validated, a successful API response is returned:
 ![image alt text](./media/RESTClient-ProxyResponseSuccess.png)
+
+## Lab Video
+
+[Apigee/Okta Integration: Resource Owner / Password Grant Flow in Action](https://youtu.be/OKCySDIwZ1E)
+
+Earn Extra-points
+* Try out the okta integration proxy for the delegated token generation case where Okta mints the OAuth access token instead of Apigee, as documented here: 
+- [Apigee Community Article](https://community.apigee.com/articles/28752/apigeeokta-integration-resource-owner-password-gra.html)
+- [Proxy](https://github.com/prithpal/apigee-okta-integration)
+
+* Also, see the advanced example for Open ID Connect with Okta, [here](https://github.com/apigee/apigee-okta).
+
+## Quiz
+
+## Summary
+
+## References
