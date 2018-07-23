@@ -56,7 +56,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Click **Build**.
 
-* You should see a successful "Uploaded proxy" message..  Click on the link to the proxy at the bottom of the page.
+* You should see a successful "Uploaded proxy" message..  Click on the link to the JWT proxy near the bottom of the page.
 
 * Deploy the JWT proxy by clicking on the **Deployment** dropdown and selecting the **test** environment.
 
