@@ -82,3 +82,51 @@ Click on the show button next to the Client Key and Client Secret for the app, a
 ![image alt text](./media/SelectClientCreds.png)
 
 ## Enforce security in the API proxy
+
+1. First, we must set up the OAuth token endpoint. To do this, download the API proxy bundle from [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/raw/master/SecurityJam/Lab%205%20-%20External%20OAuth%20Token%20using%20Okta/resources/oauth-okta-integration.zip).
+
+2. Once downloaded, navigate to **Develop -> API Proxies** in the Apigee Edge Management UI:
+![image alt text](./media/Develop-APIProxies.png)
+
+3. Click the **+Proxy** button.
+![image alt text](./media/AddProxy.png)
+
+4. In the proxy creation wizard, select the **Proxy Bundle** option and click **Next**.
+![image alt text](./media/ProxyBundleOption.png)
+
+5. On the next screen, click **Choose File** and upload the previously downloaded proxy bundle zip. Then click **Next**.
+![image alt text](./media/ChooseProxyBundle.png)
+
+6. On the next screen, click **Build** to build the proxy.
+![image alt text](./media/BuildProxyBundle.png)
+
+7. Confirm that the proxy was uploaded successfully and click on the view proxy link:
+![image alt text](./media/ViewProxyBundle.png)
+
+8. On the Proxy Overview page, click the **Deployment** button, and select the **test** environment. Click **Deploy** in the confirmation pop-up.
+![image alt text](./media/DeployProxyBundle.png)
+![image alt text](./media/DeployProxyBundleConfirm.png)
+
+9. Navigate to **Develop -> API Proxies** in the Apigee Edge Management UI:
+![image alt text](./media/Develop-APIProxies.png)
+
+10. In the API Proxy list, search and select the **Mock-Target-API** proxy:
+![image alt text](./media/SearchAPIProxy.png)
+
+11. On the proxy overview screen, click the **Develop** tab:
+![image alt text](./media/ProxyDevelopTab.png)
+
+12. In the proxy develop screen, select the **PreFlow** from the menu on the left:
+![image alt text](./media/SelectPreFlow.png)
+
+13. Click the **+Step** button on the request pipline of the PreFlow, as shown below:
+![image alt text](./media/AddStep.png)
+
+From the pop-up menu, select the OAuth v2.0 policy and click **Add** as shown below:
+![image alt text](./media/AddOAuthPolicy.png)
+
+Select the policy in the flow and edit the policy's XML configuration as shown below:
+![image alt text](./media/OAuthPolicyConfig.png)
+
+Then, click **Save**.
+![image alt text](./media/SaveProxy.png)
