@@ -56,13 +56,13 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Click **Build**.
 
-* You should see a successful "Uploaded proxy" message..  Click on the link to the proxy at the bottom of the page.
+* You should see a successful "Uploaded proxy" message..  Click on the link to the JWT proxy near the bottom of the page.
 
 * Deploy the JWT proxy by clicking on the **Deployment** dropdown and selecting the **test** environment.
 
 * Click on the **Develop** tab.
 
-* You can see that the JWT proxy has two proxy endpoints:  **/token** to generate a JWT, and **/verify** to verify a JWT.  Check both flows and read the XML policies to get a deeper understanding of how they work. (reference links available at the end of the lab)
+* You can see that the JWT proxy has two proxy endpoints: **Generate JWT** (/token) to generate a JWT, and **Verify JWT** (/verify) to verify a JWT.  Check both flows and read the XML policies to get a deeper understanding of how they work. (reference links available at the end of the lab)
 
 ![image alt text](./media/image_8.png)
 
@@ -76,7 +76,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * You should see a token received in HTTP response.  Copy the token value (except for the " “) and review the Trace tool to understand what happened.
 
-* Go to [http://jwt.io](http://jwt.io) and paste the token in the Encoded Window (ensure the algorithm is HS256).  Also type the shared secret in the Verify Signature box:
+* Go to [http://jwt.io](http://jwt.io) and paste the token in the Encoded Window (ensure the algorithm is HS256).  Also type the shared secret (e.g. **Apigee123** unless you changed it) in the Verify Signature box:
 
 ![image alt text](./media/image_10.png)
 
@@ -86,13 +86,15 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * In the Header, put "token" and its value
 
-* If you get a 200 return code, the token is OK.
+![image alt text](./media/image_11.png)
+
+* If you get a 200 return code, the JWT is valid (as expected).  Again, review the Trace tool to understand what happened.  You can also try to tamper with the JWT (add/remove characters) and invoke the same API call again.  What happens?
 
 # **Lab Video**
 
 # **Earn Extra-points**
 
-Change the JWT token and claims (iss, aud, sub, extra claims) to see how the behavior changes.
+Change the JWT token and claims (iss, aud, sub, extra claims) in to see how the behavior changes.
 
 # **Quiz**
 

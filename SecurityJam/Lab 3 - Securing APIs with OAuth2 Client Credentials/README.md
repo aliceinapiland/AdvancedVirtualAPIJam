@@ -42,7 +42,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_4.png)
 
-* You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” (not Exit! To be fixed):
+* You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” near the bottom of the page:
 
 ![image alt text](./media/image_5.png)
 
@@ -78,7 +78,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_13.png)
 
-* You should see a 401 error because the proxy is now protected with an OAuth v2.0 policy and the incoming http request to the proxy did not contain an OAuth bearer token.  So now we will need to get a valid OAuth token in order to proceed.  This will require registering a **Developer** who creates an **App** that uses an **API Product** that contains the **API Proxy**.
+* You should see a 401 error because the proxy is now protected with an OAuth v2.0 policy and the incoming http request to the proxy did not contain an OAuth bearer token.  So now we will need to get a valid OAuth token in order to proceed.  This will require registering a **Developer** who creates an **App** that uses an **API Product** that contains the **API Proxy (Mock-Target-API)**.
 
 * Let’s first create an **API Product** and add the the **Mock-Target-API Proxy** to it. Click on Publish→API Product:
 
@@ -100,7 +100,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 * Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
 
-* Fill out the fields with your **own** name and email address and click **Create**:
+* Fill out the fields with your **own name and email address** and click **Create**:
 
 ![image alt text](./media/image_19.png)
 
