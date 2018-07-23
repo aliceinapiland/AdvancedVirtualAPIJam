@@ -62,7 +62,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Click on the **Develop** tab.
 
-* You can see that the JWT proxy has two proxy endpoints:  **/token** to generate a JWT, and **/verify** to verify a JWT.  Check both flows and read the XML policies to get a deeper understanding of how they work. (reference links available at the end of the lab)
+* You can see that the JWT proxy has two proxy endpoints: **GenerateJWT** (/token) to generate a JWT, and **VerifyJWT** (/verify) to verify a JWT.  Check both flows and read the XML policies to get a deeper understanding of how they work. (reference links available at the end of the lab)
 
 ![image alt text](./media/image_8.png)
 
