@@ -86,13 +86,15 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * In the Header, put "token" and its value
 
-* If you get a 200 return code, the token is OK.
+![image alt text](./media/image_11.png)
+
+* If you get a 200 return code, the JWT is valid (as expected).  Again, review the Trace tool to understand what happened.  You can also try to tamper with the JWT (add/remove characters) and invoke the same API call again.  What happens?
 
 # **Lab Video**
 
 # **Earn Extra-points**
 
-Change the JWT token and claims (iss, aud, sub, extra claims) to see how the behavior changes.
+Change the JWT token and claims (iss, aud, sub, extra claims) in to see how the behavior changes.
 
 # **Quiz**
 
