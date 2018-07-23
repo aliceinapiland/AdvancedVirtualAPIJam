@@ -42,7 +42,7 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 ![image alt text](./media/image_4.png)
 
-* You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” (not Exit! To be fixed):
+* You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” near the bottom of the page:
 
 ![image alt text](./media/image_5.png)
 
