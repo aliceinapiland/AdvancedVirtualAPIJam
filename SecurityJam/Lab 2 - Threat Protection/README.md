@@ -6,7 +6,7 @@
 
 # Use case
 
-You have an existing Apigee API proxy that takes requests from the Internet and forwards them to an existing service. You have a requirement to ensure the integrity of the API message content, by protecting against threats such as JSON/XML/SQL injection and other mallicious manipulation. 
+You have an existing Apigee API proxy that takes requests from the Internet and forwards them to an existing service. You have a requirement to ensure the integrity of the API message content, by protecting against threats such as JSON/XML/SQL injection and other malicious manipulation.
 
 # How can Apigee Edge help?
 
@@ -14,11 +14,13 @@ Message content is a significant attack vector used by malicious API consumers. 
 
 In this lab we will see how to use the following policies:
  - JSON Threat Protection policy
- - XML Threat Protection policy
+ - Regular Expression Protection policy
 
 # Pre-requisites
 
 * Basic understanding of [JSON](https://www.json.org/) and [XML](https://www.w3.org/TR/2008/REC-xml-20081126) data formats.
+* Basic understanding of [SQL injections](https://en.wikipedia.org/wiki/SQL_injection)
+* Basic understanding of [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 * Completed a previous [Virtual API Jam](https://github.com/rmistry75/devjam3/tree/master/Labs/VirtualAPIJam) or have the equivalent knowledge of API lifecycle management, and specifically, API proxy policy configuration and enforcement on Apigee Edge.
 * Completed [Lab 1 - Traffic Management](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%201%20Traffic%20Management%20-%20Throttle%20APIs), of this Virtual API Jam on Security
 
@@ -34,7 +36,7 @@ In this lab we will see how to use the following policies:
 
 ![image alt text](./media/image_9.png)
 
-3. Click on the "**Send request and view request headers and body**" flow under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a JSON Threat Pretection policy.
+3. Click on the "**Send request and view request headers and body**" flow under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a JSON Threat Protection policy.
 
 ![image alt text](./media/select-json-flow-for-policy.png)
 
@@ -71,6 +73,7 @@ For a full list of JSON integrity checks that can be performed using this policy
 ![image alt text](./media/start-tracev2.png)
 
 * **Note**: Take note of the Apigee `organization` and `environment` you are working in. In the screenshot above, the organization is `amer-demo16` and the environment is `test`. Your organization name will likely end in `*-eval`
+
 2. Now, send a POST request to your API endpoint at **http://{{your-organization}}-{{your-environment}}.apigee.net/mock-target-api/echo** with the following format:
 ```
 POST /mock-target-api/echo HTTP/1.1
@@ -131,101 +134,68 @@ We also see that the JSON Threat Protection policy allowed the request to go thr
 
 ![image alt text](./media/success-response-trace.png)
 
-## XML Threat Protection
+## Regular Expression Protection
 
-1. Once again, click on the "**Send request and view request headers and body**" flow under Proxy Endpoints default, and then click on **+Step** on the upper right of the Request flow to attach a XML Threat Pretection policy this time.
+### Add Protection Against SQL Injections
 
-![image alt text](./media/select-xml-flow-for-policy.png)
+1. Click on the "**View IP address**" flow under Proxy Endpoints default. Click on **+Step** on the upper right of the Request flow and attach a Regular Expression Protection policy.
 
-2. Select **XML Threat Protection** policy. Click on **Add** button to add the policy to the selected flow's request pipeline.
+![image alt text](./media/select-ip-flow-for-reg-exp.png)
 
-![image alt text](./media/add-xml-threat-policy.png)
+2. Select **Regular Expression Protection** policy. Click on **Add** button to add the policy to the selected flow's request pipeline.
+
+![image alt text](./media/add-regular-expression-protection-policy.png)
 
 3. Select the policy to display the policy's XML configuration in the editor.
 
-![image alt text](./media/select-xml-threat-policy-config.png)
+![image alt text](./media/select-regular-expression-protection-policy.png)
 
-4. Change the policy's XML configuration to the below snippet to enforce protection against XML payload manipulation threats.
+4. Change the policy's XML configuration to the below snippet to protect against SQL injections.
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<XMLThreatProtection async="false" continueOnError="false" enabled="true" name="XML-Threat-Protection-1">
-    <DisplayName>XML Threat Protection-1</DisplayName>
+<RegularExpressionProtection async="false" continueOnError="false" enabled="true" name="Regular-Expression-Protection-1">
     <Source>request</Source>
-    <StructureLimits>
-        <ChildCount includeElement="true" includeText="true">3</ChildCount>
-    </StructureLimits>
-</XMLThreatProtection>
+    <QueryParam name="query">
+        <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+    </QueryParam>
+</RegularExpressionProtection>
 ```
 
-In the above example, we use the XML Threat Protection policy to ensure that the incoming API request XML payload does not contain more than 3 child nodes for any element. If the incoming payload contains more than 3 child nodes for any of the elements, the API proxy returns an error response.
-For a full list of XML payload integrity checks that can be performed using this policy, see the [XML Threat Protection policy documentation](https://docs.apigee.com/api-platform/reference/policies/xml-threat-protection-policy#elementreference).
+In the above example, the Regular Expression Protection policy has been configured with a pattern that matches common SQL injection attacks. This pattern will be checked against the value of the query parameter named `query`, and if there is a match, the policy will return an error response. Note that the policy lets you check the pattern against all types of input parameters and body content.
+
+For other sample patterns, reference the [Regular Expression Protection policy documentation](https://docs.apigee.com/api-platform/reference/policies/regular-expression-protection#abouttheregularexpressionprotectionpolicy-exampleblacklistpatterns).
 
 5. Click on **Save** to save the API Proxy changes.
 
 ![image alt text](./media/save-changes-2.png)
 
-### To Test XML Threat Protection:
+### Test Regular Expression Protection:
 
 1. To test the changes made, first click on **Trace** tab of the API proxy dashboard, and click on **Start Trace Session** button.
 
 ![image alt text](./media/start-trace.png)
 
-2. Now, send a POST request to the API endpoint **http://{{your-organization}}-{{your-environment}}.apigee.net/mock-target-api/echo** with the following format:
+2. Now, send a GET request to your API endpoint at **http://{{your-organization}}-{{your-environment}}.apigee.net/mock-target-api/ip?query=** with any of the following entries in the `query` parameter. Try out all of the entries, and see if you can determine what each attack is trying to do!
 ```
-POST /mock-target-api/echo HTTP/1.1
-Host: {{your-org}}-{{your-env}}.apigee.net
-Content-Type: application/xml
-
-<body>
-  <node1>value1</node1>
-  <node2>value2</node2>
-  <node3>value3</node3>
-  <node4>value4</node4>
-</body>
+query=delete
+query=password’ OR 1=1
+query=5; DROP TABLE USERS;
 ```
 
 You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
 ```
-curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3><node4>value4</node4></body>'
+curl "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/ip?query={{insert SQL injection attack here}}"
 ```
 
-* **Note:** If you are using a REST client, make sure that your HTTP request has a Header name/value pair of `Content-Type: xml/json` as shown below
+![image alt text](./media/send-sql-injection.png)
 
-![image alt text](./media/add-xml-header.png)
+3. The response received will be an error, since we attempted to send a malicious attack that we have configured our policy to recognize.
 
-3. The response received will be an error, since we attempted to send more than 3 child nodes under element '<body>' in the POST request payload.
+![image alt text](./media/sql-injection-blocked.png)
 
-![image alt text](./media/error-response-xml-threat.png)
+We can also confirm from the Trace screen that the Regular Expression Protection policy was triggered to return this error response.
 
-We also see that the XML Threat Protection policy was triggered to return this error response, when we see the Trace screen.
-
-![image alt text](./media/error-response-xml-threat-trace.png)
-
-4. You can now test for a successful API call, by sending the API endpoint a similar POST request, but this time with 3 or fewer child nodes for each element in the XML payload.
-```
-POST /mock-target-api/echo HTTP/1.1
-Host: org-env.apigee.net
-Content-Type: application/xml
-
-<body>
-  <node1>value1</node1>
-  <node2>value2</node2>
-  <node3>value3</node3>
-</body>
-```
-
-You can make this call either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using a terminal command such as **curl**.
-```
-curl -X POST "http://{{your-org}}-{{your-env}}.apigee.net/mock-target-api/echo" -H "Content-Type: application/xml" -d '<body><node1>value1</node1><node2>value2</node2><node3>value3</node3></body>'
-```
-
-3. The response received will be a successful one, since we attempted to send fewer fields in the POST request payload.
-
-![image alt text](./media/success-response-xml-threat.png)
-
-We also see that the XML Threat Protection policy allowed the request to go through and hit the API target, when we see the Trace screen.
-
-![image alt text](./media/success-response-xml-threat-trace.png)
+![image alt text](./media/error-response-reg-exp-trace.png)
 
 # Lab Video
 
@@ -241,12 +211,12 @@ That completes this hands-on lesson. In this simple lab you learned how to prote
 
 # References
 
-* Useful Apigee documentation links on Threat Protection policies  - 
+* Useful Apigee documentation links on Threat Protection policies  -
 
     * [JSON Threat Protection Policy](https://docs.apigee.com/api-platform/reference/policies/json-threat-protection-policy)
 
     * [XML Threat Protection Policy](https://docs.apigee.com/api-platform/reference/policies/xml-threat-protection-policy)
 
-    * [Regular Expression Protection policy](https://docs.apigee.com/api-platform/reference/policies/regular-expression-protection) 
+    * [Regular Expression Protection policy](https://docs.apigee.com/api-platform/reference/policies/regular-expression-protection)
 
 Now go to [Lab-3](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%203%20-%20Securing%20APIs%20with%20OAuth2%20Client%20Credentials)
