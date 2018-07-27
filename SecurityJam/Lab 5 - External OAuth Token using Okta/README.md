@@ -33,7 +33,7 @@ b) The API proxy configuration in Apigee Edge to enforce both end user identity 
 1. In this lab, we will use a pre-configured Okta instance to authenticate end user identity. To add a new app end user, we will use the Okta User API.
 Invoke the following API request (either from a terminal or [REST client](https://apigee-rest-client.appspot.com/)):
 ```
-curl -X POST "https://googlevidya-apigee-sample-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 00gQdAVXg9db3Wx2UfXsAfECy8wdyHLEu3ePDFu7Cp" -d '{"profile": {"firstName": "UserFirstName","lastName": "UserLastName","email": "useremail@test.com","login": "useremail@test.com"},"credentials": {"password" : { "value": "Passwordvalue123"}}}'
+curl -X POST "https://google-vapijam-sample-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 009GbMH43AjAaNKA_zVYt3wZQMcTKQHV6PJqWJxBAJ" -d '{"profile": {"firstName": "UserFirstName","lastName": "UserLastName","email": "useremail@test.com","login": "useremail@test.com"},"credentials": {"password" : { "value": "Passwordvalue123"}}}'
 ```
 
 ![image alt text](./media/RESTClient-Okta-User-API-Request1.png)
