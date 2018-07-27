@@ -17,7 +17,7 @@ In this lab we will see how to use an out of the box traffic management policy, 
 # Pre-requisites
 
 * Basic understanding of [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) (Swagger)
-* Completed a previous [Virtual API Jam](https://github.com/rmistry75/devjam3/tree/master/Labs/VirtualAPIJam) or have the equivalent knowledge
+* Completed a previous [Virtual API Jam](https://github.com/rmistry75/devjam3/tree/master/Labs/VirtualAPIJam) or have the equivalent knowledge. Alternatively, go through the ["Getting started guide"](https://docs.apigee.com/api-platform/get-started/get-started) in the Apigee Docs site.
 
 # Instructions
 
@@ -125,7 +125,7 @@ What actually happens, then? To prevent spike-like behavior, Spike Arrest smooth
 
 *Congratulations!*...You have now secured your backend against denial of service attacks, performance lags or downtime of target servers.
 
-## Test the API policy configuration
+## Test the Spike Arrest
 
 1. Let us test the updated API proxy using the Trace Console. Click on **Trace** tab.
 
