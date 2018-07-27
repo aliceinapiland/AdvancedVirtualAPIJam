@@ -10,9 +10,9 @@ You have an API that is consumed by trusted applications. You want to secure tha
 
 # **How can Apigee Edge help?**
 
-Apigee Edge quickly lets you secure your APIs using out of the box OAuth policies. OAuth defines token endpoints, authorization endpoints, and refresh endpoints. Apps call these endpoints to get access tokens, to refresh access tokens, and, in some cases, to get authorization codes. These endpoints refer to specific OAuth 2.0 policies that execute when the endpoint is called.
+Apigee Edge quickly lets you secure your APIs using out of the box OAuth policies. OAuth defines token endpoints, authorization endpoints, and refresh token endpoints. Apps call these endpoints to get access tokens, to refresh access tokens, and, in some cases, to get authorization codes. These endpoints refer to specific OAuth 2.0 policies that execute when the endpoint is called.
 
-Most typically, the client_credentials grant type is used when the app is also the resource owner. For example, an app may need to access a backend cloud-based storage service to store and retrieve data that it uses to perform its work, rather than data specifically owned by the end user. This grant type flow occurs strictly between a client app and the authorization server. An end user does not participate in this grant type flow. In this flow, Apigee Edge is the OAuth authorization server. Its role is to generate access tokens, validate access tokens, and pass authorized requests for protected resources on to the resource server.
+Most typically, the **"client_credentials"** grant type is used when the app is also the API resource owner. For example, an app may need to access a backend cloud-based storage service to store and retrieve data that it uses to perform its work, rather than data specifically owned by the end user. This grant type flow occurs strictly between a client app and the authorization server. An end user does not participate in this grant type flow. In this flow, Apigee Edge is the OAuth authorization server. Its role is to generate access tokens, validate access tokens, and pass authorized requests for protected resources, on to the resource server.
 
 # **Pre-requisites**
 
@@ -20,133 +20,161 @@ Most typically, the client_credentials grant type is used when the app is also t
 
 # **Instructions**
 
-* Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI.
+As part of this lab, we will:
+- Expose OAuth access token edpoints via an API proxy, to generate access tokens based on the "client_credentials" grat type
+- Secure our sample API with OAuth access token verification
+- Publish API Products and manage API-consuming App cofigurations on Apigee Edge, to generate a valid set of client credentials.
 
-* Select **Develop** → **API Proxies** in the side navigation menu.
+## Create OAuth Token Endpoints
+
+1. Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI.
+
+2. Select **Develop** → **API Proxies** in the side navigation menu.
 
 ![image alt text](./media/image_0.png)
 
-* Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard.
+3. Click the **+Proxy** button on the top-right corner to invoke the Create Proxy wizard.
 
 ![image alt text](./media/image_1.png)
 
-* Select **Proxy Bundle** and then click **Next** to import an existing proxy form a zip archive.
+4. Select **Proxy Bundle** and then click **Next** to import an existing proxy form a zip archive.
 
 ![image alt text](./media/image_2.png)
 
-* Download the Apigee proxy "oauth.zip" that implements OAuth client credentials grant type [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/blob/master/SecurityJam/Lab%203%20-%20Securing%20APIs%20with%20OAuth2%20Client%20Credentials/oauth.zip?raw=true).  Then click "Choose File", select the “oauth.zip” file you just downloaded and click Next:
+Download the API proxy "oauth.zip" that implements OAuth client credentials grant type [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/blob/master/SecurityJam/Lab%203%20-%20Securing%20APIs%20with%20OAuth2%20Client%20Credentials/oauth.zip?raw=true). 
+
+Back in the proxy creation wizard, click "Choose File", select the “oauth.zip” file you just downloaded and click **Next**:
 
 ![image alt text](./media/image_3.png)
 
-* Click **Build**:
+5. Click **Build**:
 
 ![image alt text](./media/image_4.png)
 
-* You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” near the bottom of the page:
+You should see a successful "Uploaded proxy" message as shown below.  You now have an OAuth Authorization Server that supports the client credentials grant type in Apigee.  Click “oauth” near the bottom of the page:
 
 ![image alt text](./media/image_5.png)
 
-* Deploy the oauth proxy by clicking on the **Deployment** dropdown and selecting the **test** environment:
+6. Deploy the oauth proxy by clicking on the **Deployment** dropdown and selecting the **test** environment:
 
 ![image alt text](./media/image_6.png)
 
-* Select **Develop** → **API Proxies** in the side navigation menu:
+## Secure Mock Target API proxy
+
+1. Select **Develop** → **API Proxies** in the side navigation menu:
 
 ![image alt text](./media/image_7.png)
 
-* Select the previously created **Mock-Target-API** proxy:
+Select the previously created **Mock-Target-API** proxy:
 
 ![image alt text](./media/image_8.png)
 
-* Click on the **Develop** tab:
+Click on the **Develop** tab:
 
 ![image alt text](./media/image_9.png)
 
-* Ensure that "Preflow" is selected in the “Proxy Endpoints” window, and then click the **+Step** button above the “Request” flow:
+2. Ensure that "Preflow" is selected in the “Proxy Endpoints” window, and then click the **+Step** button above the “Request” flow:
 
 ![image alt text](./media/image_10.png)
 
-* Select the **"OAuth v2.0"** security policy, leave the default names, and then click **Add**:
+3. Select the **"OAuth v2.0"** security policy, leave the default names, and then click **Add**:
 
 ![image alt text](./media/image_11.png)
 
-* Drag and drop the OAuth v2.0 policy so it is the first policy (before Spike Arrest) and then click **Save**.  After the proxy is saved, click **Trace** in the upper right:
+4. Drag and drop the OAuth v2.0 policy so it is the first policy (before Spike Arrest) and then click **Save**.  After the proxy is saved, click **Trace** in the upper right:
 
 ![image alt text](./media/image_12.png)
 
-* Click **"Start Trace Session"** and then click **Send**:
+5. Click **"Start Trace Session"** and then click **Send**:
 
 ![image alt text](./media/image_13.png)
 
 * You should see a 401 error because the proxy is now protected with an OAuth v2.0 policy and the incoming http request to the proxy did not contain an OAuth bearer token.  So now we will need to get a valid OAuth token in order to proceed.  This will require registering a **Developer** who creates an **App** that uses an **API Product** that contains the **API Proxy (Mock-Target-API)**.
 
-* Let’s first create an **API Product** and add the the **Mock-Target-API Proxy** to it. Click on Publish→API Product:
+## Create API Product, App Config and Generate Client Key & Secret
+
+1. Let’s first create an **API Product** and add the the **Mock-Target-API Proxy** to it. Click on **Publish→API Product**:
 
 ![image alt text](./media/image_14.png)
 
-* Then click **+API Product** in the upper right of the screen:
+Then, click **+API Product** in the upper right of the screen:
 
 ![image alt text](./media/image_15.png)
 
-* Fill out the fields as shown below.  Click **+API Proxy** (step 4) and then select the **Mock-Target-API** (step 5) from the dropdown.  Finally click **Save** :
+2. Fill out the fields as shown below.  Click **+API Proxy** (step 4) and then select the **Mock-Target-API** (step 5) from the dropdown.  Finally click **Save** :
 
 ![image alt text](./media/image_16.png)
 
-* You should now see the Mock Target Product in the list of API Products.  
+You should now see the Mock Target Product in the list of API Products.  
 
-* Click on **Publish** → **Developer**:
+3. Click on **Publish** → **Developer**:
 
 ![image alt text](./media/image_17.png)
 
-* Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
+Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
 
-* Fill out the fields with your **own name and email address** and click **Create**:
+4. Fill out the fields with your **own name and email address** and click **Create**:
 
 ![image alt text](./media/image_19.png)
 
-* You should see the new Developer you just created in the list.  
+You should see the new Developer you just created in the list.  
 
-* Click on **Publish** → **Apps**
+5. Click on **Publish** → **Apps**
 
 ![image alt text](./media/image_20.png)
 
-* Click on **+App** in the upper right of the screen:
+Click on **+App** in the upper right of the screen:
 
 ![image alt text](./media/image_21.png)
 
-* Fill out the details in the App screen as shown below.  Click **Save**:
+6. Fill out the details in the App screen as shown below.  Click **Save**:
 
 ![image alt text](./media/image_22.png)
 
-* You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields.  Copy the Consumer Key and Consumer Secret so you can use them later.  These are the client credentials you will need to get your OAuth token:
+You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields.  Copy the Consumer Key and Consumer Secret so you can use them later.  These are the client credentials you will need to get your OAuth token:
 
 ![image alt text](./media/image_23.png)
 
-* Open up a new browser tab and go to [https://apigee-rest-client.appspot.com/](https://apigee-rest-client.appspot.com/)
+## To Test OAuth Token generation and API protection
 
-* Change the HTTP verb to POST, and enter your URL to your OAuth server:
+1. First, send a valid request to the OAuth token endpoint to generate a valid access token. You can send this request either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using **curl** in your Linux/Mac terminal. The request to send is:
 
-[https://](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials)[{your-org-name}](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials)[-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials)
+```
+POST /oauth/client_credential/accesstoken?grant_type=client_credentials HTTP/1.1
+Host: {{org-name}}-{{env}}.apigee.net
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
 
-* Replace  [{your-org-name}](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials) with your actual Apigee org name.
+client_id={{app_client_key}}&client_secret={{app_client_secret}}
+```
 
-* Click on Body, select x-www-form-url-encoded.
+* Replace {{org-name}} with your actual Apigee org name, and {{env}} with the deployment environment for your proxy (eg. 'test').
 
-* Enter the client_id and client_secret and substitute your real Consumer Key and Consumer Secret accordingly.
+* Replace {{app_client_key}} and {{app_client_secret}} with your real Consumer Key and Consumer Secret noted down previously.
 
-* Click Send.  Your screen should look like this:
+```
+curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: application/json' "https://{{org-name}}-{{env}}.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials" -d 'client_id={{app_client_key}}&client_secret={{app_client_secret}}'
+```
 
 ![image alt text](./media/image_24.png)
 
-* You now have an OAuth access token as seen in the body of the HTTP response.  Copy the value of the access_token (not including the " “) as you will need it for the next step.
+You now have an OAuth access token as seen in the body of the HTTP response.  Copy the value of the access_token (not including the " “) as you will need it for the next step.
 
-* Change the POST back to GET, and enter your URL to the Mock-Target-API that is now protected by OAuthV2:
+2. Now, let's test the protected API by passing in the valid access token. You can send this request either using a REST client like the one [here](https://apigee-rest-client.appspot.com/), or using **curl** in your Linux/Mac terminal. The request to send is:
 
-[http://](http://demo32-test.apigee.net/mock-target-api)[{your-org-name}](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials)[-test.apigee.net/mock-target-api](http://demo32-test.apigee.net/mock-target-api)
+```
+GET /mock-target-api HTTP/1.1
+Host: {{org-name}}-{{env}}.apigee.net
+Authorization: Bearer {{access-token}}
+```
 
-* Substitute [{your-org-name}](https://{your-org-name}-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials) with your actual Apigee org name.
+* Replace {{org-name}} with your actual Apigee org name, and {{env}} with the deployment environment for your proxy (eg. 'test').
 
-* Add a header named **Authorization**, and in the value field write **Bearer** followed by your **access_token** you copied after your last POST request.  Finally click Send and you should see the following:
+* Add a header named **Authorization**, and in the value field write **Bearer** followed by your **access_token** you copied after your last POST request.
+
+```
+curl -X GET -H "Authorization: Bearer {{access-token}}" "http://{{org-name}}-{{env}}.apigee.net/mock-target-api"
+```
 
 ![image alt text](./media/image_25.png)
 
