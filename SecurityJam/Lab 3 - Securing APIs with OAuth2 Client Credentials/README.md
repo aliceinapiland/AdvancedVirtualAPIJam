@@ -111,7 +111,7 @@ You should now see the Mock Target Product in the list of API Products.
 
 ![image alt text](./media/image_17.png)
 
-Click on **+Developer** in the upper right of the screen:![image alt text](image_18.png)
+Click on **+Developer** in the upper right of the screen:![image alt text](./media/image_18.png)
 
 4. Fill out the fields with your **own name and email address** and click **Create**:
 
