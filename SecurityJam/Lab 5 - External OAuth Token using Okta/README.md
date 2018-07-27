@@ -16,7 +16,7 @@ Apigee has built in support to implement OAuth 2.0 in the resource owner / passw
 
 # **Pre-requisites**
 
-* You have completed [Lab 1](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%201%20Traffic%20Management%20-%20Throttle%20APIs). If not, please complete that first.
+* You have completed [Lab 3](https://goo.gl/xBMaav). If not, please complete that first.
 
 # **Instructions**
 
@@ -47,41 +47,53 @@ This will create an active end user profile in Okta:
 
 ## App Configuration in Apigee Edge
 
+**Note: These steps should have already been completed during Lab 3, so please skip if you have already completed Lab 3.**
+
 1. To provide access to the API, we must first package the API proxy into an API Product. To do this, first log into the Apigee Edge Management UI, and navigate to **Publish -> API Products**:
-![image alt text](./media/Publish-APIProducts.png)
 
-2. Click the **+API Product** button.
-![image alt text](./media/AddAPIProduct.png)
+![image alt text](./media/image_14.png)
 
-Provide the API Product configuration as shown below, and click **Save**:
-![image alt text](./media/AddAPIProductDetails.png)
+Then, click **+API Product** in the upper right of the screen:
+
+![image alt text](./media/image_15.png)
+
+2. Fill out the fields as shown below.  Click **+API Proxy** (step 4) and then select the **Mock-Target-API** (step 5) from the dropdown.  Finally click **Save** :
+
+![image alt text](./media/image_16.png)
+
+You should now see the Mock Target Product in the list of API Products.  
 
 3. Typically, the client app developer will register his/her profile and the app profile, to obtain app credentials through a developer portal. However, for this lab, we will create these entities through the Apigee Edge Management UI. 
 
-First let's create the developer profile. To do this, navigate to **Publish -> Developers** on the Management UI:
-![image alt text](./media/Publish-Developers.png)
+First let's create the developer profile. To do this, click on **Publish** → **Developer**:
 
-4. Click the **+Developer** button.
-![image alt text](./media/AddDeveloper.png)
-Provide the Developer configuration as shown below, and click **Create**:
-![image alt text](./media/AddDeveloperDetails.png)
+![image alt text](./media/image_17.png)
 
-5. Navigate to **Publish -> Apps** on the Management UI:
-![image alt text](./media/Publish-Apps.png)
+Click on **+Developer** in the upper right of the screen:![image alt text](./media/image_18.png)
 
-6. Click the **+App** button.
-![image alt text](./media/AddApp.png)
+4. Fill out the fields with your **own name and email address** and click **Create**:
 
-Provide the app configuration as shown below, and click **Save**:
-![image alt text](./media/AddAppDetails.png)
+![image alt text](./media/image_19.png)
 
-7. Navigate to **Publish -> Apps** on the Management UI, search for and click on the newly created App:
-![image alt text](./media/SearchApp.png)
+You should see the new Developer you just created in the list.  
 
-Click on the show button next to the Client Key and Client Secret for the app, as shown below, and make a note of both. We will use these app credentials to generate an OAuth access token.
-![image alt text](./media/SelectClientCreds.png)
+5. Click on **Publish** → **Apps**
 
-## Enforce security in the API proxy
+![image alt text](./media/image_20.png)
+
+Click on **+App** in the upper right of the screen:
+
+![image alt text](./media/image_21.png)
+
+6. Fill out the details in the App screen as shown below.  Click **Save**:
+
+![image alt text](./media/image_22.png)
+
+You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields. Make a note of the Consumer Key and Consumer Secret so you can use them later. These are the client credentials you will need to get your OAuth token:
+
+![image alt text](./media/image_23.png)
+
+## Create OAuth Token Endpoints
 
 1. First, we must set up the OAuth token endpoint. To do this, download the API proxy bundle from [here](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/raw/master/SecurityJam/Lab%205%20-%20External%20OAuth%20Token%20using%20Okta/resources/oauth-okta-integration.zip).
 
@@ -107,19 +119,23 @@ Click on the show button next to the Client Key and Client Secret for the app, a
 ![image alt text](./media/DeployProxyBundle.png)
 ![image alt text](./media/DeployProxyBundleConfirm.png)
 
-9. Navigate to **Develop -> API Proxies** in the Apigee Edge Management UI:
+## Secure Mock Target API proxy with OAuth Access Token verification
+
+**Note: These steps should have already been completed during Lab 3, so please skip if you have already completed Lab 3.**
+
+1. Navigate to **Develop -> API Proxies** in the Apigee Edge Management UI:
 ![image alt text](./media/Develop-APIProxies.png)
 
-10. In the API Proxy list, search and select the **Mock-Target-API** proxy:
+2. In the API Proxy list, search and select the **Mock-Target-API** proxy:
 ![image alt text](./media/SearchAPIProxy.png)
 
-11. On the proxy overview screen, click the **Develop** tab:
+3. On the proxy overview screen, click the **Develop** tab:
 ![image alt text](./media/ProxyDevelopTab.png)
 
-12. In the proxy develop screen, select the **PreFlow** from the menu on the left:
+4. In the proxy develop screen, select the **PreFlow** from the menu on the left:
 ![image alt text](./media/SelectPreFlow.png)
 
-13. Click the **+Step** button on the request pipline of the PreFlow, as shown below:
+5. Click the **+Step** button on the request pipline of the PreFlow, as shown below:
 ![image alt text](./media/AddStep.png)
 
 From the pop-up menu, select the OAuth v2.0 policy and click **Add** as shown below:

@@ -59,7 +59,7 @@ You should see a successful "Uploaded proxy" message as shown below.  You now ha
 
 ![image alt text](./media/image_6.png)
 
-## Secure Mock Target API proxy
+## Secure Mock Target API proxy with OAuth Access Token verification
 
 1. Select **Develop** → **API Proxies** in the side navigation menu:
 
@@ -93,7 +93,7 @@ Click on the **Develop** tab:
 
 ## Create API Product, App Config and Generate Client Key & Secret
 
-1. Let’s first create an **API Product** and add the the **Mock-Target-API Proxy** to it. Click on **Publish→API Product**:
+1. To provide access to the API, we must first package the API proxy into an API Product. To do this, first log into the Apigee Edge Management UI, and navigate to **Publish -> API Products**:
 
 ![image alt text](./media/image_14.png)
 
@@ -107,7 +107,9 @@ Then, click **+API Product** in the upper right of the screen:
 
 You should now see the Mock Target Product in the list of API Products.  
 
-3. Click on **Publish** → **Developer**:
+3. Typically, the client app developer will register his/her profile and the app profile, to obtain app credentials through a developer portal. However, for this lab, we will create these entities through the Apigee Edge Management UI. 
+
+First let's create the developer profile. To do this, click on **Publish** → **Developer**:
 
 ![image alt text](./media/image_17.png)
 
@@ -131,7 +133,7 @@ Click on **+App** in the upper right of the screen:
 
 ![image alt text](./media/image_22.png)
 
-You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields.  Copy the Consumer Key and Consumer Secret so you can use them later.  These are the client credentials you will need to get your OAuth token:
+You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields. Make a note of the Consumer Key and Consumer Secret so you can use them later. These are the client credentials you will need to get your OAuth token:
 
 ![image alt text](./media/image_23.png)
 
