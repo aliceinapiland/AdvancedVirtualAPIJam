@@ -207,7 +207,7 @@ If you like to learn by watching, here are short 4 minute videos on using:
 
 Now that you have tried the JSON and Regular Expression Threat Protection policies, try out the [XML Threat Protection policy](https://docs.apigee.com/api-platform/reference/policies/xml-threat-protection-policy) that helps you check the API payload content integrity in the case of XML payloads.
 
-#Summary
+# Summary
 
 That completes this hands-on lesson. In this simple lab you learned how to protect your API payloads against payload content based threats.
 
