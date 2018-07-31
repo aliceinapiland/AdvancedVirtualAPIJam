@@ -6,7 +6,7 @@
 
 # **Use case**
 
-You have an API that is consumed by a client application. You want to secure that API using OAuth 2.0 and use an external identiy provider such as Okta, to protect the application end user identity.
+You have an API that is consumed by a client application. You want to secure that API using OAuth 2.0 and use an external identity provider such as Okta, to protect the application end user identity.
 In this lab, we will use Apigee as the OAuth provider to protect the API endpoints using OAuth 2.0. Okta will be used to protect the application end user's identity. We will accomplish this by integrating Okta into the Apigee OAuth proxy, and implement OAuth 2.0 in resource owner / password grant type.
 
 # **How can Apigee Edge help?**
