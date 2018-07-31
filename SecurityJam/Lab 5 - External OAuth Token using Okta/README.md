@@ -15,6 +15,8 @@ See: [Apigee + Okta - Using OAuth 2.0 Resource Owner / Password Grant Type](http
 
 Apigee has built in support to implement OAuth 2.0 in the resource owner / password grant type. Using the [OAuthV2 policy](https://docs.apigee.com/api-platform/reference/policies/oauthv2-policy), Apigee Edge can be configured to act as the authorization provider for access to the API, while using the [Service Callout policy](https://docs.apigee.com/api-platform/reference/policies/service-callout-policy) to invoke Okta's authentication API to authenticate the identity of the app end user.
 
+![image alt text](./media/password-grant-flow-diagram.png)
+
 # **Pre-requisites**
 
 * You have completed [Lab 3](https://goo.gl/xBMaav). If not, please complete that first.
@@ -200,8 +202,12 @@ Earn Extra-points
 
 * Also, see the advanced example for Open ID Connect with Okta, [here](https://github.com/apigee/apigee-okta).
 
-## Quiz
-
 ## Summary
 
+In this lab, you have now created an OAuth 2.0 access token endpoint to generate and refresh tokens in the resource owner / password grant type method after validating app end user credetials against an Identity Provider (Okta), and have secured your API such that a valid token must be presented to authorize requests to your API.
+
 ## References
+
+* [Implementing the Password Grant Type for OAuth 2.0 on Apigee Edge](https://docs.apigee.com/api-platform/security/oauth/implementing-password-grant-type)
+
+* [OAuthV2 policy cofiguration reference](https://docs.apigee.com/api-platform/reference/policies/oauthv2-policy)

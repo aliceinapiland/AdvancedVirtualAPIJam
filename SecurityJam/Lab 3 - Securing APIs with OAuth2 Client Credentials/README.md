@@ -188,17 +188,11 @@ If you are lazy and don’t want to implement this use case, it’s OK. You can 
 
 # **Earn Extra-points**
 
-Now that you’ve learned how to secure your API with OAuth 2.0, try to control the expiry of the access token that is generated.
-
-# **Quiz**
-
-1. What are the various OAuth 2.0 grant types supported by Apigee Edge?
-
-2. What are the various operations that are provided by the OAuth v2.0 policy?
+Now that you’ve learned how to secure your API with OAuth 2.0, try to control the expiry of the access token that is generated, using the [<ExpiresIn>](https://docs.apigee.com/api-platform/reference/policies/oauthv2-policy#expiresinelement) configuration element of the [OAuthV2 policy](https://docs.apigee.com/api-platform/reference/policies/oauthv2-policy#expiresinelement).
 
 # **Summary**
 
-In this lab you learned how to secure your API using a two legged OAuth by using the default oauth proxy obtaining an access code and using that against your API.
+In this lab you learned how to secure your API using two legged OAuth 2.0 in client credentials grant type, by using the default oauth proxy to obtain an access token and using that token to validate requests to your API.
 
 # **References**
 

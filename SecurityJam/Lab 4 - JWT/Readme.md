@@ -92,7 +92,7 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 # **Earn Extra-points**
 
-Change the JWT token and claims (iss, aud, sub, extra claims) in to see how the behavior changes.
+Change the JWT token generation policy to include [additional claims](https://docs.apigee.com/api-platform/reference/policies/generate-jwt-policy#additionalclaimsclaim) (iss, aud, sub, extra claims) in it, to see how the behavior changes.
 
 # **Summary**
 

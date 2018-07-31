@@ -199,11 +199,13 @@ We can also confirm from the Trace screen that the Regular Expression Protection
 
 # Lab Video
 
-If you like to learn by watching, here is a [short video](https://youtu.be/rC8kZJgwBFM) on using Threat Protection policies in Apigee Edge.
+If you like to learn by watching, here are short 4 minute videos on using:
+- [JSON Threat Protection Policy](https://youtu.be/LIUeaAvRuTQ)
+- [RegEx Protection Policy](https://youtu.be/NLg_LE3u-vM)
 
 # Earn Extra-points
 
-Now that you have tried the JSON and XML Threat Protection policies, try out the [Regular Expression Protection policy](https://docs.apigee.com/api-platform/reference/policies/regular-expression-protection) that helps you check the API payload content integrity using regular expression checks. Also, here's [a short video](https://youtu.be/NLg_LE3u-vM) on using this policy.
+Now that you have tried the JSON and Regular Expression Threat Protection policies, try out the [XML Threat Protection policy](https://docs.apigee.com/api-platform/reference/policies/xml-threat-protection-policy) that helps you check the API payload content integrity in the case of XML payloads.
 
 #Summary
 
@@ -218,5 +220,7 @@ That completes this hands-on lesson. In this simple lab you learned how to prote
     * [XML Threat Protection Policy](https://docs.apigee.com/api-platform/reference/policies/xml-threat-protection-policy)
 
     * [Regular Expression Protection policy](https://docs.apigee.com/api-platform/reference/policies/regular-expression-protection)
+
+    * [Video](https://youtu.be/rC8kZJgwBFM) on using Threat Protection policies in Apigee Edges
 
 Now go to [Lab-3](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%203%20-%20Securing%20APIs%20with%20OAuth2%20Client%20Credentials)
