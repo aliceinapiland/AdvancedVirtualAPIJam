@@ -96,7 +96,7 @@ Change the JWT token and claims (iss, aud, sub, extra claims) in to see how the 
 
 # **Summary**
 
-* In this lab, you learned how to use Apigee's out of the box JWT policies to both generate and verify a JWT.  Now you can use these policies to actually secure an API using JWT security.  To do so, you would first want to authenticate a user against their IdP before calling GenerateJWT and issuing the JWT back to that user (for simplicity, we did not do this step in this lab).  Then the API that is protected would invoke VerifyJWT (either directly or via an Apigee endpoint) to verify the JWT and read its claims.
+* In this lab, you learned how to use Apigee's out of the box JWT policies to both generate and verify a JWT.  Now you can use these policies to actually secure an API using JWT security.  To do so, you would first want to authenticate a user against their IdP (which also contains "claims" about that user/principal) before calling GenerateJWT and issuing the JWT with claims back to that user (for simplicity, we skipped the user authentication step in this lab and hard coded the claims). The API that is protected would invoke VerifyJWT (either directly or via an Apigee endpoint) to verify the JWT and read/verify its claims.
 
 # **References**
 
