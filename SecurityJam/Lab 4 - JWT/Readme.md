@@ -90,15 +90,13 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * If you get a 200 return code, the JWT is valid (as expected).  Again, review the Trace tool to understand what happened.  You can also try to tamper with the JWT (add/remove characters) and invoke the same API call again.  What happens?
 
-# **Lab Video**
-
 # **Earn Extra-points**
 
 Change the JWT token and claims (iss, aud, sub, extra claims) in to see how the behavior changes.
 
-# **Quiz**
-
 # **Summary**
+
+* In this lab, you learned how to use Apigee's out of the box JWT policies to both generate and verify a JWT.  Now you can use these policies to actually secure an API using JWT security.  To do so, you would first want to authenticate a user against their IdP before calling GenerateJWT and issuing the JWT back to that user (for simplicity, we did not do this step in this lab).  Then the API that is protected would invoke VerifyJWT (either directly or via an Apigee endpoint) to verify the JWT and read its claims.
 
 # **References**
 
