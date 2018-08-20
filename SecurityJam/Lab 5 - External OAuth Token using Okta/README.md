@@ -141,7 +141,7 @@ You will now see your list of Apps again.  Click on your **Mock Target App** aga
 5. Click the **+Step** button on the request pipline of the PreFlow, as shown below:
 ![image alt text](./media/AddStep.png)
 
-From the pop-up menu, select the OAuth v2.0 policy and click **Add** as shown below:
+From the pop-up menu, select the OAuth v2.0 policy and click **Add** as shown below (note: the policy order does not matter):
 ![image alt text](./media/AddOAuthPolicy.png)
 
 Select the policy in the flow and edit the policy's XML configuration as shown below:
