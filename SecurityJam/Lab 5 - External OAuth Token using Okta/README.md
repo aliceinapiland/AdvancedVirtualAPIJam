@@ -36,8 +36,15 @@ b) The API proxy configuration in Apigee Edge to enforce both end user identity 
 1. In this lab, we will use a pre-configured Okta instance to authenticate end user identity. To add a new app end user, we will use the Okta User API.
 Invoke the following API request (either from a terminal or [REST client](https://apigee-rest-client.appspot.com/)):
 ```
-curl -X POST "https://google-vapijam-sample-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 00HMVP9FVdKKvHwD2LZ2QUMtKRMWzuVahWlQ9MukOB" -d '{"profile": {"firstName": "UserFirstName","lastName": "UserLastName","email": "useremail@test.com","login": "useremail@test.com"},"credentials": {"password" : { "value": "Passwordvalue123"}}}'
+curl -X POST "https://mailinator-vapijam-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 005T-U0zz3AYxrJX7pjxHl0aXlHWq7QZagcc6udOD5" -d '{"profile": {"firstName": "UserFirstName","lastName": "UserLastName","email": "useremail@test.com","login": "useremail@test.com"},"credentials": {"password" : { "value": "Passwordvalue123"}}}'
 ```
+Use the following parameters if using the REST Client
+
+URL: `https://mailinator-vapijam-admin.okta.com/api/v1/users?activate=true`
+
+Authorization Header: `SSWS 005T-U0zz3AYxrJX7pjxHl0aXlHWq7QZagcc6udOD5`
+
+First Name, last name, email, login, and password: provide your own
 
 ![image alt text](./media/RESTClient-Okta-User-API-Request1.png)
 ![image alt text](./media/RESTClient-Okta-User-API-Request2.png)
