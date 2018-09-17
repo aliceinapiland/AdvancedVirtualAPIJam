@@ -135,7 +135,7 @@ What actually happens, then? To prevent spike-like behavior, Spike Arrest smooth
 
 ![image alt text](./media/image_14.png)
 
-3. Click on **Send** button multiple times, You will see 500 response code when spike arrest policy kicks in to protect target servers from spike in traffic.
+3. Click on **Send** button multiple times, You will see a 500 or 429 response code when spike arrest policy kicks in to protect target servers from spike in traffic.
 
 ![image alt text](./media/image_15.png)
 
