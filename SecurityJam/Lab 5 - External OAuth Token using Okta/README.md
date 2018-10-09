@@ -42,7 +42,7 @@ Use the following parameters if using the REST Client
 
 URL: `https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activate=true`
 
-Authorization Header: `SSWS 005T-U0zz3AYxrJX7pjxHl0aXlHWq7QZagcc6udOD5`
+Authorization Header: `SSWS 00Zx5hPw0tykqLfpyWJiFdMjQ4Lo6XyaFDJKIqjdtd`
 
 First Name, last name, email, login, and password: provide your own
 
