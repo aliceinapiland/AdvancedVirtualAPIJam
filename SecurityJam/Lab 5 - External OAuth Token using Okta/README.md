@@ -40,7 +40,7 @@ curl -X POST "https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activat
 ```
 Use the following parameters if using the REST Client
 
-URL: `https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activate=true`
+POST to URL: `https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activate=true`
 
 Authorization Header: `SSWS 00Zx5hPw0tykqLfpyWJiFdMjQ4Lo6XyaFDJKIqjdtd`
 
@@ -51,7 +51,6 @@ First Name, last name, email, login, and password: provide your own
 
 This will create an active end user profile in Okta:
 ![image alt text](./media/RESTClient-Okta-User-API-Response.png)
-![image alt text](./media/Okta-User-Created.png)
 
 2. Make note of the Username and Password used in the above API request. We will use this to authenticate the app end user's identity.
 
