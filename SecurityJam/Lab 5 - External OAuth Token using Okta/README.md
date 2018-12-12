@@ -36,13 +36,13 @@ b) The API proxy configuration in Apigee Edge to enforce both end user identity 
 1. In this lab, we will use a pre-configured Okta instance to authenticate end user identity. To add a new app end user, we will use the Okta User API.
 Invoke the following API request (either from a terminal or [REST client](https://apigee-rest-client.appspot.com/)):
 ```
-curl -X POST "https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 00Zx5hPw0tykqLfpyWJiFdMjQ4Lo6XyaFDJKIqjdtd" -d '{"profile": {"firstName": "UserFirstName","lastName": "UserLastName","email": "useremail@test.com","login": "useremail@test.com"},"credentials": {"password" : { "value": "Passwordvalue123"}}}'
+curl -X POST "https://google-vapijam-security-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 00pm1IxzJnb7Hlx7vom1lFGaXpAPPz4sqt659nKH77" -d '{"profile": {"firstName": "<Enter First Name>","lastName": "<Enter Last Name>","email": "<Enter Email ID>","login": "<Enter Email ID>"},"credentials": {"password" : { "value": "<Enter Password>"}}}'
 ```
 Use the following parameters if using the REST Client
 
-POST to URL: `https://mailinator-apigee-vapi-admin.okta.com/api/v1/users?activate=true`
+POST to URL: `https://google-vapijam-security-admin.okta.com/api/v1/users?activate=true`
 
-Authorization Header: `SSWS 00Zx5hPw0tykqLfpyWJiFdMjQ4Lo6XyaFDJKIqjdtd`
+Authorization Header: `SSWS 00pm1IxzJnb7Hlx7vom1lFGaXpAPPz4sqt659nKH77`
 
 First Name, last name, email, login, and password: provide your own
 
@@ -52,7 +52,7 @@ First Name, last name, email, login, and password: provide your own
 This will create an active end user profile in Okta:
 ![image alt text](./media/RESTClient-Okta-User-API-Response.png)
 
-2. Make note of the Username and Password used in the above API request. We will use this to authenticate the app end user's identity.
+2. Make note of the Username and Password you provided in the above API request. We will use this to authenticate the app end user's identity.
 
 ## App Configuration in Apigee Edge
 
@@ -113,7 +113,7 @@ You will now see your list of Apps again.  Click on your **Mock Target App** aga
 ![image alt text](./media/AddProxy.png)
 
 4. In the proxy creation wizard, select the **Proxy Bundle** option and click **Next**.
-![image alt text](./media/ProxyBundleOption.png)
+![image alt text](./media/AddOktaIntegrationOAuthProxy-ProxyAddWizardOption.png)
 
 5. On the next screen, click **Choose File** and upload the previously downloaded proxy bundle zip. Then click **Next**.
 ![image alt text](./media/ChooseProxyBundle.png)
