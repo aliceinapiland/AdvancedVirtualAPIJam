@@ -36,13 +36,13 @@ b) The API proxy configuration in Apigee Edge to enforce both end user identity 
 1. In this lab, we will use a pre-configured Okta instance to authenticate end user identity. To add a new app end user, we will use the Okta User API.
 Invoke the following API request (either from a terminal or [REST client](https://apigee-rest-client.appspot.com/)):
 ```
-curl -X POST "https://google-apijam-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 00RV5L4m_43Uf0y4a9qkNI1Wqd8Gxcv77cwl62fiGW" -d '{"profile": {"firstName": "<Enter First Name>","lastName": "<Enter Last Name>","email": "<Enter Email ID>","login": "<Enter Email ID>"},"credentials": {"password" : { "value": "<Enter Password>"}}}'
+curl -X POST "https://dev-271499-admin.okta.com/api/v1/users?activate=true" -H "Content-Type: application/json" -H "Authorization: SSWS 004LHmN3InpVQ9pOMWjsdb6ZDUmi1IP8_DLjaOlb6Z" -d '{"profile": {"firstName": "<Enter First Name>","lastName": "<Enter Last Name>","email": "<Enter Email ID>","login": "<Enter Email ID>"},"credentials": {"password" : { "value": "<Enter Password>"}}}'
 ```
 Use the following parameters if using the REST Client
 
-POST to URL: `https://google-apijam-admin.okta.com/api/v1/users?activate=true`
+POST to URL: `https://dev-271499-admin.okta.com/api/v1/users?activate=true`
 
-Authorization Header: `SSWS 00RV5L4m_43Uf0y4a9qkNI1Wqd8Gxcv77cwl62fiGW`
+Authorization Header: `SSWS 004LHmN3InpVQ9pOMWjsdb6ZDUmi1IP8_DLjaOlb6Z`
 
 First Name, last name, email, login, and password: provide your own
 
