@@ -131,7 +131,7 @@ Click on **+App** in the upper right of the screen:
 
 ![image alt text](./media/image_21.png)
 
-6. Fill out the details in the App screen as shown below.  Click **Save**:
+6. Fill out the details in the App screen as shown below.  Click **Create**:
 
 ![image alt text](./media/image_22a.png)
 ![image alt text](./media/image_22b.png)
