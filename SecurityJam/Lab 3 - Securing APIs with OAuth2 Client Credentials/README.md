@@ -105,7 +105,7 @@ Then, click **+API Product** in the upper right of the screen:
 
 ![image alt text](./media/image_16a.png)
 ![image alt text](./media/image_16b.png)
-![image alt text](./media/image_16c.png)
+![image alt text](./media/image_16c.png)App
 
 You should now see the Mock Target Product in the list of API Products.  
 
@@ -133,7 +133,9 @@ Click on **+App** in the upper right of the screen:
 
 6. Fill out the details in the App screen as shown below.  Click **Save**:
 
-![image alt text](./media/image_22.png)
+![image alt text](./media/image_22a.png)
+![image alt text](./media/image_22b.png)
+![image alt text](./media/image_22c.png)
 
 You will now see your list of Apps again.  Click on your **Mock Target App** again and click the "Show/Hide" buttons next to the **Consumer Key** and **Consumer Secret** fields. Make a note of the Consumer Key and Consumer Secret so you can use them later. These are the client credentials you will need to get your OAuth token:
 
