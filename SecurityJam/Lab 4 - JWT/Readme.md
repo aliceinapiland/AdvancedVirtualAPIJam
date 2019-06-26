@@ -34,7 +34,9 @@ You have an API that is consumed by third parties. You want to secure that API u
 
 * Now that the key value map is created, add a Shared Secret (key: secret, value: Apigee123 or your choice) to it as shown:
 
-![image alt text](./media/image_3.png)
+![image alt text](./media/image_3a.png)
+![image alt text](./media/image_3b.png)
+![image alt text](./media/image_3c.png)
 
 * This shared secret will be used to both generate and verify JWT tokens using the HS256 algorithm.
 
