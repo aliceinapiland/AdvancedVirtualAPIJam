@@ -103,7 +103,9 @@ Then, click **+API Product** in the upper right of the screen:
 
 2. Fill out the fields as shown below.  Click **+API Proxy** (step 4) and then select the **Mock-Target-API** (step 5) from the dropdown.  Finally click **Save** :
 
-![image alt text](./media/image_16.png)
+![image alt text](./media/image_16a.png)
+![image alt text](./media/image_16b.png)
+![image alt text](./media/image_16c.png)
 
 You should now see the Mock Target Product in the list of API Products.  
 
