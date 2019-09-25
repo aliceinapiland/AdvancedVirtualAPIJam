@@ -21,11 +21,13 @@ Most typically, the **"client_credentials"** grant type is used when the app is 
 # **Instructions**
 
 As part of this lab, we will:
-- Expose OAuth access token edpoints via an API proxy, to generate access tokens based on the "client_credentials" grat type
+- Expose OAuth access token edpoints via an API proxy, to generate access tokens based on the "client_credentials" grant type
 - Secure our sample API with OAuth access token verification
 - Publish API Products and manage API-consuming App cofigurations on Apigee Edge, to generate a valid set of client credentials.
 
 ## Create OAuth Token Endpoints
+
+**Note: In Apigee Edge trial account orgs, the oauth endpoint should already have been created at the time of org provisioning. Check you API Proxies list under Develop -> API Proxies. If there is already a proxy labeled 'oauth', simply go to the proxy details page, click on 'Deployment' and ensure that it is deployed to the 'test' environment (Step 6 below). After that, you can skip this section and head to [the next section](https://github.com/aliceinapiland/AdvancedVirtualAPIJam/tree/master/SecurityJam/Lab%203%20-%20Securing%20APIs%20with%20OAuth2%20Client%20Credentials#secure-mock-target-api-proxy-with-oauth-access-token-verification).**
 
 1. Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI.
 
